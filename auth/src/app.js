@@ -23,7 +23,8 @@ open.then(function(conn) {
   return ch.assertQueue(apiQueueName).then(function(ok) {
     return ch.consume(apiQueueName, function(msg) {
       if (msg !== null) {
-        console.log(msg.content.toString());
+        let json = JSON.parse(msg.content.toString());
+        console.log('request from api-service: ' + msg.content.toString());
         ch.ack(msg);
         auth_response();
       }
