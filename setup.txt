@@ -1,0 +1,48 @@
+Setup
+
+sudo npm install -g npx
+
+update node
+node --version - to check node version
+
+Node Version Manager https://github.com/creationix/nvm
+nvm ls-remote - to check remote node versions
+nvm install <version> - to install a new node version
+
+Project setup
+npm init -y
+
+mkdir src
+npm install --save-dev nodemon babel babel-preset-es2015 babel-cli
+npm install --save express amqplib
+
+docker pull rabbitmq
+
+Start
+docker run -d --hostname my-rabbit --name some-rabbit -p 8090:15672 -p4369:4369 -p5671:5671 -p5672:5672 -p15671:15671 -p25672:25672 rabbitmq:3-management
+
+npx babel -w src -d destination --presets=es2015
+
+npm run-script start-dev
+
+Helper
+
+docker ps -a
+docker stop d3c081a99aa7
+docker rm d3c081a99aa7
+
+Part 2.2 of RabbitMQ for beginners explains how to get started with RabbitMQ and Node.js.
+https://www.cloudamqp.com/blog/2015-05-19-part2-2-rabbitmq-for-beginners_example-and-sample-code-node-js.html
+
+squaremo/amqp.node
+AMQP 0-9-1 library and client for Node.JS https://squaremo.github.io/amqp.node/
+https://github.com/squaremo/amqp.node
+
+amqp.node/examples/tutorials/
+RabbitMQ tutorials
+https://github.com/squaremo/amqp.node/tree/master/examples/tutorials
+
+
+Nodemon is a utility that will monitor for any changes in your source and automatically restart your server.
+https://www.npmjs.com/package/nodemon
+https://nodemon.io

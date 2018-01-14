@@ -1,0 +1,7 @@
+.DS_Store
+
+api/node_modules/
+auth/node_modules/
+
+api/destination/
+auth/destination/
